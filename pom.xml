@@ -14,6 +14,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.jupiter.version>5.9.2</junit.jupiter.version>
         <junit.platform.version>1.8.1</junit.platform.version>
+        <codeborne.selenide.version>7.2.2</codeborne.selenide.version>
+        <bonigarcia.webdrivermanager.version>5.7.0</bonigarcia.webdrivermanager.version>
     </properties>
 
     <dependencies>
@@ -21,19 +23,21 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${codeborne.selenide.version}</version>
         </dependency>
     </dependencies>
 
