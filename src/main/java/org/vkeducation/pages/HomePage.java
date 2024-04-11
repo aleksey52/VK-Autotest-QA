@@ -14,14 +14,10 @@ public class HomePage extends BasePage {
     private final By lightThemeButton = By.xpath("//li[@data-l='t,theme_light']");
     private final By darkThemeButton = By.xpath("//li[@data-l='t,theme_dark']");
     private final By messageButton = By.xpath("//button[@id='msg_toolbar_button']");
-    private final By messageSettingsButton = By.xpath("//*[@data-tsid='msg_settings_button']");
-    private final By createMenuButton = By.xpath("//button[@data-l='t, createMenu']");
-    private final By createChatButton = By.xpath("//msg-menu[@id='msg-new-menu']/slot/msg-menu-item");
-    private final By finishCreateChatButton = By.xpath("//button[@data-tsid='finish_create_chat_button']");
-    private final By emptyMessageField = By.xpath("//msg-input[@data-tsid='write_msg_input']");
 
-    public HomePage() {
-        openPage();
+    public HomePage(String username, String password) {
+        final LoginPage loginPage = new LoginPage();
+        loginPage.login(username, password);
         checkPage();
     }
 
@@ -65,25 +61,9 @@ public class HomePage extends BasePage {
         return $(themeChangeButton).getText();
     }
 
-    public void createEmptyChat() {
+    public void openMessagePage() {
         $(messageButton)
                 .shouldBe(visible.because("messageButton should be visible on the HomePage"))
                 .click();
-        $(messageSettingsButton)
-                .shouldBe(visible.because("messageSettingsButton should be visible after click messageButton"))
-                .click();
-        $(createMenuButton)
-                .shouldBe(visible.because("createMenuButton should be visible on chat menu"))
-                .click();
-        $(createChatButton)
-                .shouldBe(visible.because("createChatButton should be visible on creating chat page"))
-                .click();
-        $(finishCreateChatButton)
-                .shouldBe(visible.because("finishCreateChatButton should be visible on creating chat page"))
-                .click();
-    }
-
-    public boolean emptyMessageFieldIsDisplayed() {
-        return $(emptyMessageField).isDisplayed();
     }
 }

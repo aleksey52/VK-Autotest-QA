@@ -7,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.vkeducation.enums.Theme;
 import org.vkeducation.pages.HomePage;
-import org.vkeducation.pages.LoginPage;
 
 import static com.codeborne.selenide.Selenide.sleep;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -18,9 +17,7 @@ public class ChangeThemeTest extends BaseTest {
 
     @BeforeEach
     public void init() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.login(VALID_USERNAME, VALID_PASSWORD);
-        homePage = new HomePage();
+        homePage = new HomePage(VALID_USERNAME, VALID_PASSWORD);
     }
 
     @ParameterizedTest
