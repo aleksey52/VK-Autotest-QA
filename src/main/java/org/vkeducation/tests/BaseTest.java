@@ -1,4 +1,4 @@
-package org.vkeducation;
+package org.vkeducation.tests;
 
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 abstract public class BaseTest {
 
-    public static final String BASE_URL = "https://ok.ru/";
     public static final String VALID_USERNAME = "technopol35";
     public static final String VALID_PASSWORD = "technopolisPassword";
     public static final String INVALID_USERNAME = "invalid_username";
@@ -19,7 +18,6 @@ abstract public class BaseTest {
     @BeforeEach
     public void setUp() {
         Configuration.browser = Browsers.CHROME;
-        Configuration.baseUrl = BASE_URL;
     }
 
     @AfterEach
